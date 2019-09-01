@@ -1,0 +1,45 @@
+{
+    "env": {
+        "browser": true,
+        "es6": true
+    },
+    "extends": [
+      "plugin:react/recommended"
+    ],
+    "globals": {
+        "Atomics": "readonly",
+        "SharedArrayBuffer": "readonly"
+    },
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 2018,
+        "sourceType": "module"
+    },
+    "plugins": ["react"],
+    "rules": {
+      "no-underscore-dangle": [
+        "error",
+        {
+          "allow": ["__INITIAL_STATE__", "__MUI_USE_NEXT_TYPOGRAPHY_VARIANTS__", "__REDUX_DEVTOOLS_EXTENSION__", "__STORYBOOK__"],
+          "allowAfterThis": true,
+          "allowAfterSuper": true,
+          "enforceInMethodNames": false
+        }
+      ],
+      "import/prefer-default-export": "off",
+      "class-methods-use-this": ["off"],
+      "consistent-return": ["off"],
+      "curly": ["error", "all"],
+      "max-len": [
+        "error",
+        {
+          "code": 200,
+          "ignoreComments": true,
+          "ignorePattern": "^import |^export |^\\s*// |^.*\\{@link |^.*/\\* eslint.* |^.*\\[.*\\]\\(.*\\)[.]?$",
+          "tabWidth": 2
+        }
+      ],
+    }
+}

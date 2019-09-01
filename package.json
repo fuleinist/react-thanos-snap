@@ -1,0 +1,27 @@
+{
+  "name": "react-thanos-snap",
+  "version": "0.0.1",
+  "description": "react warpper to enable thanos snap effect",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "test"
+  },
+  "keywords": [
+    "react",
+    "animation",
+    "thanos",
+    "snap"
+  ],
+  "author": "fuleinist",
+  "license": "MIT",
+  "dependencies": {
+    "chance": "^1.0.18",
+    "html2canvas": "^1.0.0-rc.3",
+    "jquery": "^3.4.1",
+    "react": "^16.9.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.2.2",
+    "eslint-plugin-react": "^7.14.3"
+  }
+}
