@@ -15,12 +15,12 @@ body {
   flex-direction: column;
   background: #ddd;
 }
-#start-btn {
+#snap-btn {
   font-size: 36px;
   padding: 20px 40px 20px 80px ;
   margin-top: 30px;
   border-radius: 10px;
-  background:url("thanos-logo.png") white 15px no-repeat;
+  background:url(snap.gif) white 15px no-repeat;
   background-size: 50px;
 }
 .dust {

@@ -1,12 +1,16 @@
-import { html2canvas } from 'html2canvas';
-import { chance } from 'chance';
+import html2canvas from 'html2canvas';
+import Chance from 'chance';
 import $ from "jquery";
+
+import "jquery-ui/ui/effects/effect-slide";
 
 let imageDataArray = [];
 let canvasCount = 35;
+const chance = new Chance();
 
-export const createCanvas = async (element) => {
-	await html2canvas(element).then(canvas => {
+export const createCanvas = (element) => {
+	html2canvas(element).then(canvas => {
+		element.style.visibility ="hidden";
 		//capture all div data as image
 		let ctx = canvas.getContext("2d");
 		let imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
@@ -79,7 +83,7 @@ export const animateBlur = (elem,radius,duration) => {
 };
 
 export const animateTransform = (elem,sx,sy,angle,duration) => {
-  var td = tx = ty =0;
+  let td, tx, ty = 0;
   $({x: 0, y:0, deg:0}).animate({x: sx, y:sy, deg:angle}, {
 	  duration: duration,
 	  easing: "easeInQuad",
@@ -109,10 +113,10 @@ export const createBlankImageData = (imageData) => {
 }
 
 export const newCanvasFromImageData = (imageDataArray ,w , h) => {
-  var canvas = document.createElement('canvas');
+  let canvas = document.createElement('canvas');
 	  canvas.width = w;
 	  canvas.height = h;
-	  tempCtx = canvas.getContext("2d");
+	  let tempCtx = canvas.getContext("2d");
 	  tempCtx.putImageData(new ImageData(imageDataArray, w , h), 0, 0);
 	  
   return canvas;
