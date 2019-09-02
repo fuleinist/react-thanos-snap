@@ -1,17 +1,39 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { createCanvas } from './effect';
+import SnapButton from './SnapButton';
 
-const SnapWrapper = ({children}) => {
+function resolveAfterMs(delay) {
+  return new Promise(resolve => {
+    setTimeout(() => {
+      resolve('resolved');
+    }, delay);
+  });
+}
+
+
+const SnapWrapper = ({children, delay, resume}) => {
   const eleRef = useRef(null);
-  useEffect( ()=> {
+  const [ snap, setSnap ] = useState(false);
+  useEffect(()=> {
     const create = async () => {
-      await setTimeout(()=>{}, 3000);
-      if(eleRef) { createCanvas(eleRef.current); } else {console.log(`something is wrong ${eleRef}`)}
+      if(eleRef && snap) {
+        await resolveAfterMs(delay);
+        console.log(`SNAP!`)
+        createCanvas(eleRef.current);
+        if(resume === "auto" || 1) {
+          await await resolveAfterMs(delay * 5);
+          console.log(delay * 5)
+          setSnap(false);
+        }
+      }
     } 
     create();
-  }, [])
-  const transformedChildren = <div ref={eleRef}>{children}</div>;
-  return transformedChildren;
+  }, [snap])
+  const transformedChildren = <div ref={eleRef} style={{position: 'relative'}}>{children}</div>;
+  return  <>
+            {snap ? transformedChildren : children}
+            <div><SnapButton onClick={() => setSnap(!snap) }/></div>
+          </>;
 }
 
 export default SnapWrapper;

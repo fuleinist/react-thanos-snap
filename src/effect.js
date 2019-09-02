@@ -10,10 +10,12 @@ const chance = new Chance();
 
 export const createCanvas = (element) => {
 	html2canvas(element).then(canvas => {
-		element.style.visibility ="hidden";
+		element.childNodes.forEach(node => node.style.visibility ="hidden")
 		//capture all div data as image
 		let ctx = canvas.getContext("2d");
-		let imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
+		console.log([canvas.width, canvas.height]);
+		console.log([element.offsetWidth, element.offsetHeight])
+		let imageData = ctx.getImageData(0, 0, element.offsetWidth, element.offsetHeight);
 		let pixelArr = imageData.data;
 		createBlankImageData(imageData);
 		//put pixel info to imageDataArray (Weighted Distributed)
@@ -27,11 +29,15 @@ export const createCanvas = (element) => {
 			a[i+3] = pixelArr[i+3]; 
 		}
 		//create canvas for each imageData and append to target element
+		let container = document.createElement('div');
+		container.classList.add("canvas_container");
+		container
 		for (let i = 0; i < canvasCount; i++) {
-			let c = newCanvasFromImageData(imageDataArray[i], canvas.width, canvas.height);
+			let c = newCanvasFromImageData(imageDataArray[i], element.offsetWidth, element.offsetHeight);
 			c.classList.add("dust");
-			$("body").append(c);
+			container.appendChild(c);
 		}
+		element.appendChild(container);
 		//clear all children except the canvas
 		$(".content").children().not(".dust").fadeOut(3500);
 		//apply animation
@@ -113,11 +119,10 @@ export const createBlankImageData = (imageData) => {
 }
 
 export const newCanvasFromImageData = (imageDataArray ,w , h) => {
-  let canvas = document.createElement('canvas');
+	let canvas = document.createElement('canvas');
 	  canvas.width = w;
 	  canvas.height = h;
 	  let tempCtx = canvas.getContext("2d");
 	  tempCtx.putImageData(new ImageData(imageDataArray, w , h), 0, 0);
-	  
   return canvas;
 }

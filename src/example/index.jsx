@@ -1,12 +1,11 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import image from '../images.jpg';
-import { SnapButton, SnapWrapper } from '../index';
+import image from './image.png';
+import { SnapWrapper } from '../index';
 
 const App = () => {
-  return  <div>
-            <SnapWrapper><img src={image} /></SnapWrapper>
-            <div><SnapButton /></div>
+  return  <div className="content">
+            <SnapWrapper delay={1000} resume="auto" ><img src={image} /></SnapWrapper>
           </div>;
 };
 
