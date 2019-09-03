@@ -40,6 +40,6 @@
           "ignorePattern": "^import |^export |^\\s*// |^.*\\{@link |^.*/\\* eslint.* |^.*\\[.*\\]\\(.*\\)[.]?$",
           "tabWidth": 2
         }
-      ],
+      ]
     }
 }

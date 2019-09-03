@@ -2,9 +2,9 @@
   "name": "react-thanos-snap-effect",
   "version": "0.0.1",
   "description": "react warpper to enable thanos snap effect",
-  "main": "src/index.js",
+  "main": "build/index.js",
   "scripts": {
-    "test": "test",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode production",
     "start": "webpack-dev-server --mode development --open"
   },
@@ -16,6 +16,9 @@
   ],
   "author": "fuleinist",
   "license": "MIT",
+  "peerDependencies": {
+    "react": "^16.9.0"
+  },
   "dependencies": {
     "@babel/runtime": "^7.5.5",
     "chance": "^1.0.18",

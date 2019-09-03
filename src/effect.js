@@ -10,12 +10,11 @@ const chance = new Chance();
 
 export const createCanvas = (element) => {
 	html2canvas(element).then(canvas => {
-		element.childNodes.forEach(node => node.style.visibility ="hidden")
+		// element.childNodes.forEach(node => node.style.visibility ="hidden")
 		//capture all div data as image
 		let ctx = canvas.getContext("2d");
-		console.log([canvas.width, canvas.height]);
-		console.log([element.offsetWidth, element.offsetHeight])
-		let imageData = ctx.getImageData(0, 0, element.offsetWidth, element.offsetHeight);
+		console.log(element);
+		let imageData = ctx.getImageData(0, 0, canvas.width, canvas.height);
 		let pixelArr = imageData.data;
 		createBlankImageData(imageData);
 		//put pixel info to imageDataArray (Weighted Distributed)
@@ -31,15 +30,14 @@ export const createCanvas = (element) => {
 		//create canvas for each imageData and append to target element
 		let container = document.createElement('div');
 		container.classList.add("canvas_container");
-		container
 		for (let i = 0; i < canvasCount; i++) {
-			let c = newCanvasFromImageData(imageDataArray[i], element.offsetWidth, element.offsetHeight);
+			let c = newCanvasFromImageData(imageDataArray[i], canvas.width, canvas.height);
 			c.classList.add("dust");
 			container.appendChild(c);
 		}
-		element.appendChild(container);
+		element.parentNode.appendChild(container);
 		//clear all children except the canvas
-		$(".content").children().not(".dust").fadeOut(3500);
+		$(element.parentNode).children().not(".dust").fadeOut(3500);
 		//apply animation
 		$(".dust").each( function(index){
 			animateBlur($(this),0.8,800);

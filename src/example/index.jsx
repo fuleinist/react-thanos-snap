@@ -1,11 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import ReactDOM from "react-dom";
-import image from './image.png';
-import { SnapWrapper } from '../index';
+import { SnapWrapper, SnapButton } from '../index';
 
 const App = () => {
+  const [snap, setSnap] = useState(false);
   return  <div className="content">
-            <SnapWrapper delay={1000} resume="auto" ><img src={image} /></SnapWrapper>
+            <SnapWrapper snap={snap} setSnap={setSnap}><img src="https://filmschoolrejects.com/wp-content/uploads/2019/08/commentary-avengers-endgame.jpg" /></SnapWrapper>
+            <SnapButton onClick={() => setSnap(!snap) }/>
           </div>;
 };
 

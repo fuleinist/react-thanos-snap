@@ -1,12 +1,14 @@
-const HtmlWebPackPlugin = require("html-webpack-plugin");
+// https://medium.com/@BrodaNoel/how-to-create-a-react-component-and-publish-it-in-npm-668ad7d363ce
 
-const htmlPlugin = new HtmlWebPackPlugin({
-  template: "./src/example/index.html",
-  filename: "./index.html"
-});
+var path = require('path');
 
 module.exports = {
-  entry: ["@babel/polyfill", './src/example/index.jsx'],
+  entry: ["@babel/polyfill", './src/index.js'],
+  output: {
+    path: path.resolve(__dirname, 'build'),
+    filename: 'index.js',
+    libraryTarget: 'commonjs2'
+  },
   module: {
     rules: [
       {
@@ -26,8 +28,10 @@ module.exports = {
       } 
     ]
   },
-  plugins: [htmlPlugin],
   resolve: {
     extensions: ['.js', '.jsx'],
+  },
+  externals: {
+    'react': 'commonjs react' // this line is just to use the React dependency of our parent-testing-project instead of using our own React.
   }
 };
