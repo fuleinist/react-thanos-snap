@@ -21,7 +21,7 @@ const SnapWrapper = ({children, delay, resume}) => {
         console.log(`SNAP!`)
         createCanvas(eleRef.current);
         if(resume === "auto" || 1) {
-          await await resolveAfterMs(delay * 5);
+          await resolveAfterMs(delay * 5);
           console.log(delay * 5)
           setSnap(false);
         }
