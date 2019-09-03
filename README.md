@@ -6,9 +6,9 @@ Original Code can be found from https://redstapler.co/thanos-snap-effect-javascr
 
 # How to use
 
-* Run `npm install react-thanos-snap`
-* `import { SnapWrapper } from 'react-thanos-snap'`
-* Warp the components in `<SnapWrapper> </SnapWrapper>`
+* Run `npm install react-thanos-snap-effect`
+* `import { SnapWrapper } from 'react-thanos-snap-effect'`
+* Warp the components in `<SnapWrapper>{/** Put your components here **/}</SnapWrapper>`
 * Start your dev server, click the thanos snap button on the Page
 * Props can be used:
   * delay: delay in milliseconds to trigger the snap effect after click Thanos button
