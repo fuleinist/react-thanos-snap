@@ -42,5 +42,16 @@
     "webpack": "^4.39.3",
     "webpack-cli": "^3.3.7",
     "webpack-dev-server": "^3.8.0"
-  }
+  },
+  "directories": {
+    "example": "example"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fuleinist/react-thanos-snap.git"
+  },
+  "bugs": {
+    "url": "https://github.com/fuleinist/react-thanos-snap/issues"
+  },
+  "homepage": "https://github.com/fuleinist/react-thanos-snap#readme"
 }
