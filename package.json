@@ -1,5 +1,5 @@
 {
-  "name": "react-thanos-snap",
+  "name": "react-thanos-snap-effect",
   "version": "0.0.1",
   "description": "react warpper to enable thanos snap effect",
   "main": "src/index.js",
