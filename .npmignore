@@ -15,3 +15,7 @@ node_modules
 #editor settings
 .idea
 .editorconfig
+
+.babelrc
+.gitignore
+webpack.config.js

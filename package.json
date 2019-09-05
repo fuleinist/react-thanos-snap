@@ -1,12 +1,14 @@
 {
   "name": "react-thanos-snap-effect",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "react warpper to enable thanos snap effect",
-  "main": "src/index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "test",
     "build": "webpack --mode production",
-    "start": "webpack-dev-server --mode development --open"
+    "start": "webpack-dev-server --mode development --open",
+    "prepublishOnly": "babel src -d dist --copy-files",
+    "deploy": "gh-pages -d examples/dist"
   },
   "keywords": [
     "react",
@@ -17,7 +19,6 @@
   "author": "fuleinist",
   "license": "MIT",
   "dependencies": {
-    "@babel/runtime": "^7.5.5",
     "chance": "^1.0.18",
     "html2canvas": "^1.0.0-rc.3",
     "jquery": "^3.4.1",
@@ -26,11 +27,14 @@
     "react-dom": "^16.9.0"
   },
   "devDependencies": {
+    "@babel/cli": "^7.5.5",
     "@babel/core": "^7.5.5",
     "@babel/plugin-transform-runtime": "^7.5.5",
     "@babel/polyfill": "^7.4.4",
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
+    "@babel/runtime": "^7.5.5",
+    "babel-core": "^7.0.0-bridge.0",
     "babel-loader": "^8.0.6",
     "css-loader": "^3.2.0",
     "eslint": "^6.2.2",
@@ -43,9 +47,6 @@
     "webpack-cli": "^3.3.7",
     "webpack-dev-server": "^3.8.0"
   },
-  "directories": {
-    "example": "example"
-  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/fuleinist/react-thanos-snap.git"
@@ -53,5 +54,8 @@
   "bugs": {
     "url": "https://github.com/fuleinist/react-thanos-snap/issues"
   },
-  "homepage": "https://github.com/fuleinist/react-thanos-snap#readme"
+  "homepage": "https://github.com/fuleinist/react-thanos-snap#readme",
+  "directories": {
+    "example": "example"
+  }
 }

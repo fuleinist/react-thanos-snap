@@ -1,12 +1,5 @@
-const HtmlWebPackPlugin = require("html-webpack-plugin");
-
-const htmlPlugin = new HtmlWebPackPlugin({
-  template: "./src/example/index.html",
-  filename: "./index.html"
-});
-
 module.exports = {
-  entry: ["@babel/polyfill", './src/example/index.jsx'],
+  entry: ["@babel/polyfill", './src/index.js'],
   module: {
     rules: [
       {
@@ -26,7 +19,10 @@ module.exports = {
       } 
     ]
   },
-  plugins: [htmlPlugin],
+  output: {
+	 filename: 'bundle.js',
+	 path: __dirname + '/dist'
+  },
   resolve: {
     extensions: ['.js', '.jsx'],
   }
