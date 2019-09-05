@@ -2,11 +2,7 @@
   "name": "react-thanos-snap-effect",
   "version": "0.0.3",
   "description": "react warpper to enable thanos snap effect",
-<<<<<<< HEAD
   "main": "dist/index.js",
-=======
-  "main": "build/index.js",
->>>>>>> 13beb9eb23c47dc7eb0f9b3f0412fc925e6737f8
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack --mode production",
