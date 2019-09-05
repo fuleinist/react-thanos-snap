@@ -19,3 +19,7 @@ node_modules
 .babelrc
 .gitignore
 webpack.config.js
+
+#dev files
+src
+example
